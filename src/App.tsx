@@ -11,7 +11,9 @@ import {
   HeartPulse, ShieldCheck, GraduationCap, Sunrise, Briefcase, 
   Building2, Landmark, MessageCircle, Phone, Mail, 
   Facebook, Instagram, Menu, X, CheckCircle2, ChevronRight, Send,
-  ArrowRight, Award, UserCheck, ShieldPlus
+  ArrowRight, Award, UserCheck, ShieldPlus, Stethoscope, Activity,
+  FileCheck, ClipboardList, Scale, Info, Calendar, ChevronDown, ExternalLink,
+  MapPin, Clock, Search
 } from "lucide-react";
 
 // --- Types ---
@@ -29,38 +31,26 @@ const SERVICES: Service[] = [
   {
     id: "gmm",
     title: "Gastos Médicos Mayores",
-    description: "Tranquilidad ante cualquier imprevisto médico. Cobertura nacional e internacional.",
+    description: "La cobertura más robusta para proteger tu salud y patrimonio ante lo inesperado.",
     icon: HeartPulse,
   },
   {
     id: "vida",
     title: "Seguro de Vida",
-    description: "Protege el futuro de tus seres queridos con coberturas flexibles y adaptadas.",
+    description: "Asegura el bienestar de los tuyos con planes de vida diseñados a tu medida.",
     icon: ShieldCheck,
-  },
-  {
-    id: "educativo",
-    title: "Plan Educativo",
-    description: "Garantiza el futuro académico de tus hijos con un ahorro inteligente.",
-    icon: GraduationCap,
   },
   {
     id: "retiro",
     title: "Ahorro para el Retiro",
-    description: "Construye hoy el retiro que deseas con planes de pensión privada.",
+    description: "Construye hoy la libertad financiera que deseas para tu futuro.",
     icon: Sunrise,
   },
   {
-    id: "financiero",
-    title: "Productos Financieros",
-    description: "Soluciones de ahorro e inversión para potencializar tu patrimonio.",
-    icon: Building2,
-  },
-  {
-    id: "bancario",
-    title: "Productos Bancarios",
-    description: "Acceso a beneficios de Inbursa para el control de tus finanzas.",
-    icon: Landmark,
+    id: "empresas",
+    title: "Seguros Corporativos",
+    description: "Protección integral para el capital humano y activos de tu negocio.",
+    icon: Briefcase,
   },
 ];
 
@@ -103,7 +93,7 @@ const Navbar = () => {
 
         {/* Desktop Nav */}
         <div className="hidden md:flex gap-8 items-center">
-          {["Inicio", "Servicios", "Empresas"].map((item) => (
+          {["Inicio", "Servicios"].map((item) => (
             <a 
               key={item} 
               href={`#${item.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")}`}
@@ -136,7 +126,7 @@ const Navbar = () => {
             className="md:hidden bg-white border-b absolute top-full left-0 w-full overflow-hidden"
           >
             <div className="flex flex-col p-6 gap-4">
-              {["Inicio", "Servicios", "Empresas"].map((item) => (
+              {["Inicio", "Servicios"].map((item) => (
                 <a 
                   key={item} 
                   href={`#${item.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "")}`}
@@ -163,23 +153,30 @@ const Navbar = () => {
 
 const Hero = () => {
   return (
-    <section id="inicio" className="relative min-h-[90vh] md:min-h-screen flex items-center pt-28 md:pt-20 overflow-hidden bg-[linear-gradient(135deg,white_60%,#E3E9F2_60%)]">
+    <section id="inicio" className="relative min-h-[90vh] md:min-h-screen flex items-center pt-28 md:pt-20 overflow-hidden bg-[linear-gradient(135deg,#FFFFFF_60%,#F8FAFC_60%)]">
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-[1.2fr_0.8fr] gap-8 md:gap-16 items-center relative z-10 w-full">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
+          <div className="inline-flex items-center gap-2 bg-gold/10 text-gold px-4 py-2 rounded-full mb-6 border border-gold/20">
+            <ShieldPlus size={16} />
+            <span className="text-[10px] font-bold uppercase tracking-widest">Especialista en Protección Médica</span>
+          </div>
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-serif text-navy leading-[1.1] mb-6 md:mb-8 font-bold">
-            Protege lo que<br />
-            <span className="text-gold italic">más importa</span> hoy.
+            Tu tranquilidad,<br />
+            <span className="text-gold italic">nuestra prioridad</span> médica.
           </h1>
           <p className="text-slate-600 text-base md:text-lg mb-8 md:text-10 max-w-lg leading-relaxed">
-            Con más de 15 años de experiencia en el mercado mexicano, diseño estrategias personalizadas para blindar tu patrimonio y asegurar el futuro de tu familia.
+            Diseño estrategias de Seguros de Gastos Médicos Mayores para que tú y tu familia tengan acceso a la mejor atención privada sin comprometer su patrimonio.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
-            <a href="#contacto" className="bg-navy hover:bg-navy/90 text-white px-8 md:px-10 py-3.5 md:py-4 rounded-[4px] font-bold uppercase tracking-widest text-xs md:text-sm transition-all shadow-lg active:scale-95 text-center">
-              Asesoría Gratuita
+            <a href="#calendario" className="bg-navy hover:bg-navy/90 text-white px-8 md:px-10 py-3.5 md:py-4 rounded-[4px] font-bold uppercase tracking-widest text-xs md:text-sm transition-all shadow-lg active:scale-95 text-center">
+              Agenda asesoría gratuita
+            </a>
+            <a href="#gmm-detalles" className="border border-navy text-navy px-8 md:px-10 py-3.5 md:py-4 rounded-[4px] font-bold uppercase tracking-widest text-xs md:text-sm hover:bg-navy hover:text-white transition-all text-center">
+              Saber más
             </a>
           </div>
         </motion.div>
@@ -188,21 +185,256 @@ const Hero = () => {
           initial={{ opacity: 0, x: 30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, delay: 0.2 }}
-          className="relative hidden md:block"
+          className="relative"
         >
-          <div className="bg-white p-10 rounded-lg shadow-2xl border-l-[6px] border-gold relative z-10">
-             <h3 className="text-navy text-2xl font-serif font-bold mb-4">Tu Agente de Confianza</h3>
-             <p className="text-slate-600 leading-relaxed mb-6">
-               Mi compromiso es brindarte claridad y seguridad en cada decisión financiera. Trabajo de la mano con las aseguradoras líderes para encontrarte la mejor cobertura al precio justo.
-             </p>
-             <div className="pt-4 border-t border-light-blue">
+          <div className="relative group overflow-hidden rounded-2xl">
+            <img 
+              src="https://i.imgur.com/VDtjQCR.png" 
+              alt="Liliana Saenzpardo" 
+              className="w-full h-auto object-cover relative z-10 transition-transform duration-700 group-hover:scale-105"
+              referrerPolicy="no-referrer"
+            />
+            {/* Professional Floating Badge */}
+            <div className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-md p-6 rounded-xl shadow-2xl z-20 border-l-[6px] border-gold transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
                <p className="text-navy font-black text-lg uppercase tracking-tight">Liliana Saenzpardo</p>
-               <p className="text-gold font-bold text-xs uppercase tracking-[0.2em] mt-1">CÉDULA PROFESIONAL VIGENTE</p>
-             </div>
+               <div className="flex items-center gap-2 mt-1">
+                 <Award size={14} className="text-gold" />
+                 <p className="text-gold font-bold text-[10px] uppercase tracking-[0.2em]">Cédula Profesional Vigente</p>
+               </div>
+            </div>
           </div>
           {/* Decorative elements */}
-          <div className="absolute -top-10 -right-10 w-32 h-32 bg-gold/10 rounded-full blur-2xl -z-0" />
+          <div className="absolute -top-10 -right-10 w-48 h-48 bg-gold/10 rounded-full blur-3xl -z-0" />
+          <div className="absolute -bottom-10 -left-10 w-48 h-48 bg-navy/5 rounded-full blur-3xl -z-0" />
         </motion.div>
+      </div>
+    </section>
+  );
+};
+
+const SectionSGMMIntro = () => {
+  const [showModal, setShowModal] = useState(false);
+
+  return (
+    <section id="gmm-detalles" className="py-24 bg-slate-50 border-y border-slate-100">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200 grid md:grid-cols-2">
+          <div className="relative h-64 md:h-auto overflow-hidden">
+            <img 
+              src="https://www.advans.es/wp-content/uploads/2021/08/imagen-seguro-vida1.jpg" 
+              alt="Seguro de Gastos Médicos Mayores" 
+              className="w-full h-full object-cover"
+              referrerPolicy="no-referrer"
+            />
+            <div className="absolute inset-0 bg-navy/20" />
+          </div>
+          <div className="p-8 md:p-16 flex flex-col justify-center items-start">
+            <span className="text-gold font-bold uppercase tracking-widest text-[10px] mb-4">Servicio Destacado</span>
+            <h2 className="text-3xl md:text-5xl font-serif font-bold text-navy mb-8 leading-tight">
+              Seguro de Gastos <br /><span className="text-gold italic">Médicos Mayores</span>
+            </h2>
+            <p className="text-lg text-slate-600 mb-10 leading-relaxed max-w-lg">
+              Accede a hospitales privados y médicos de la red contratada sin poner en riesgo tu patrimonio o el de tu familia ante cualquier percance de salud.
+            </p>
+            <button 
+              onClick={() => setShowModal(true)}
+              className="bg-navy text-white px-10 py-4 rounded-[4px] font-bold uppercase tracking-widest text-xs hover:bg-gold hover:text-navy transition-all shadow-lg active:scale-95"
+            >
+              Saber más
+            </button>
+          </div>
+        </div>
+      </div>
+
+      {/* Modal / Expanded Section */}
+      <AnimatePresence>
+        {showModal && (
+          <motion.div 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[60] flex items-center justify-center p-4 bg-navy/90 backdrop-blur-sm"
+          >
+            <motion.div 
+              initial={{ scale: 0.95, y: 20 }}
+              animate={{ scale: 1, y: 0 }}
+              exit={{ scale: 0.95, y: 20 }}
+              className="bg-white w-full max-w-4xl max-h-[90vh] overflow-y-auto rounded-xl shadow-2xl p-8 md:p-12 relative"
+            >
+              <button 
+                onClick={() => setShowModal(false)}
+                className="absolute top-6 right-6 text-slate-400 hover:text-navy p-2 bg-slate-100 rounded-full transition-all"
+              >
+                <X size={24} />
+              </button>
+
+              <div className="max-w-2xl">
+                <h3 className="text-3xl font-serif font-bold text-navy mb-6">
+                  ¿Qué es el Seguro de Gastos Médicos Mayores?
+                </h3>
+                <p className="text-slate-600 text-lg mb-10 leading-relaxed">
+                  Están diseñados para brindar certidumbre al momento de enfrentar un evento que ponga en riesgo nuestra salud. Al contar con este plan, tendrás acceso a diferentes servicios y hasta la suma asegurada sin poner en riesgo el patrimonio familiar.
+                </p>
+
+                <div className="grid sm:grid-cols-2 gap-6 mb-10">
+                  {[
+                    "Deducible",
+                    "Coaseguro",
+                    "Nivel hospitalario",
+                    "Suma asegurada",
+                    "Honorarios quirúrgicos",
+                    "Exención de deducible por accidente o emergencia en el extranjero"
+                  ].map((item, i) => (
+                    <div key={i} className="flex items-start gap-4 p-4 rounded-lg bg-slate-50 border border-slate-100 border-l-4 border-l-gold">
+                      <div className="mt-1 text-navy shrink-0"><CheckCircle2 size={20} /></div>
+                      <span className="font-bold text-navy text-sm leading-tight">{item}</span>
+                    </div>
+                  ))}
+                </div>
+
+                <div className="flex gap-4">
+                  <a href="#contacto" onClick={() => setShowModal(false)} className="bg-navy text-white px-8 py-4 rounded-[4px] font-bold uppercase tracking-widest text-xs">
+                    Cotizar ahora
+                  </a>
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </section>
+  );
+};
+
+const RequirementsSection = () => {
+  const reqs = [
+    { title: "RFC y CURP", icon: FileCheck },
+    { title: "INE vigente", icon: Award },
+    { title: "Cuestionario de salud", icon: ClipboardList },
+    { title: "Peso y estatura", icon: Scale },
+  ];
+
+  return (
+    <section className="py-24 bg-white">
+      <div className="max-w-7xl mx-auto px-6">
+        <SectionHeader 
+          title="Requisitos para solicitar" 
+          subtitle="Proceso simplificado y transparente para asegurar tu bienestar financiero y médico."
+        />
+        <h3 className="text-center font-serif text-xl italic text-slate-500 mb-12 -mt-10">un Seguro de Gastos Médicos Mayores</h3>
+        
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          {reqs.map((req, i) => (
+            <div key={i} className="group p-8 rounded-xl border border-slate-100 hover:border-gold/30 hover:shadow-xl transition-all duration-300 text-center bg-slate-50">
+              <div className="w-16 h-16 mx-auto mb-6 bg-white rounded-full flex items-center justify-center text-gold shadow-sm group-hover:bg-gold group-hover:text-white transition-all">
+                <req.icon size={28} />
+              </div>
+              <p className="font-bold text-navy uppercase tracking-widest text-xs leading-relaxed">{req.title}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const ProcessSection = () => {
+  const steps = [
+    { title: "Encuentra la cobertura adecuada", icon: Search, color: "bg-blue-600" },
+    { title: "Cotiza entre las mejores aseguradoras", icon: Landmark, color: "bg-navy" },
+    { title: "Recibe asesoría sin costo", icon: UserCheck, color: "bg-gold" },
+    { title: "Contrata sin complicaciones", icon: FileCheck, color: "bg-blue-800" },
+    { title: "Vive tranquilo y protegido", icon: HeartPulse, color: "bg-green-600" },
+  ];
+
+  return (
+    <section className="py-24 bg-navy overflow-hidden relative">
+      <div className="absolute top-0 right-0 w-96 h-96 bg-gold/5 rounded-full blur-[100px] -mr-48 -mt-48" />
+      <div className="max-w-7xl mx-auto px-6 relative z-10">
+        <SectionHeader 
+          title="Nuestro proceso es simple" 
+          subtitle="Pasos claros y directos para que obtengas la mejor protección sin complicaciones."
+          light
+        />
+        
+        <div className="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-6 pt-12">
+          {steps.map((step, i) => (
+            <React.Fragment key={i}>
+              <div className="flex flex-col items-center gap-6 w-full max-w-[200px] text-center group">
+                <div className={`w-20 h-20 rounded-full flex items-center justify-center text-white relative shadow-lg ${step.color} transition-transform group-hover:scale-110 duration-500`}>
+                  <step.icon size={32} />
+                  <div className="absolute -top-2 -right-2 w-8 h-8 bg-white text-navy font-black rounded-full flex items-center justify-center border-2 border-navy shadow-md">
+                    {i + 1}
+                  </div>
+                </div>
+                <p className="text-white font-bold text-[11px] uppercase tracking-widest leading-relaxed opacity-90 group-hover:opacity-100 transition-opacity">
+                  {step.title}
+                </p>
+              </div>
+              {i < steps.length - 1 && (
+                <div className="hidden lg:block h-[1px] w-full bg-gold/30" />
+              )}
+            </React.Fragment>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};
+
+const FAQSection = () => {
+  const [active, setActive] = useState<number | null>(0);
+
+  const faqs = [
+    {
+      q: "¿Cuáles son los tipos de seguros de Gastos Médicos Mayores?",
+      a: "Existen diversos planes adaptados a distintas necesidades: planes básicos integrales, planes de cobertura internacional, planes con acceso a hospitales específicos de alto nivel y planes complementarios para quienes ya cuentan con una cobertura laboral."
+    },
+    {
+      q: "¿De qué depende el costo del Seguro de Gastos Médicos Mayores (SGMM)?",
+      a: "El costo se determina principalmente por la edad del asegurado, género, zona geográfica de residencia, nivel hospitalario elegido, monto del deducible y coaseguro, e inclusones adicionales seleccionadas."
+    },
+    {
+      q: "¿Existen restricciones al contratar un SGMM?",
+      a: "Sí, las aseguradoras consideran padecimientos preexistentes (enfermedades diagnosticadas previo a la contratación), periodos de espera para ciertos tratamientos (como maternidad o cirugías específicas) y límites de edad para la contratación inicial."
+    }
+  ];
+
+  return (
+    <section className="py-24 bg-white">
+      <div className="max-w-3xl mx-auto px-6">
+        <SectionHeader 
+          title="Preguntas frecuentes" 
+          subtitle="Resolvemos tus dudas sobre el Seguro de Gastos Médicos Mayores."
+        />
+        
+        <div className="space-y-4">
+          {faqs.map((faq, i) => (
+            <div key={i} className="border border-slate-200 rounded-lg overflow-hidden transition-all">
+              <button 
+                onClick={() => setActive(active === i ? null : i)}
+                className="w-full flex items-center justify-between p-6 text-left hover:bg-slate-50 transition-all group"
+              >
+                <span className="font-bold text-navy text-sm md:text-base leading-tight pr-4">{faq.q}</span>
+                <ChevronDown className={`shrink-0 text-gold transition-transform duration-300 ${active === i ? "rotate-180" : ""}`} size={20} />
+              </button>
+              <AnimatePresence>
+                {active === i && (
+                  <motion.div 
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: "auto", opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    className="overflow-hidden"
+                  >
+                    <div className="p-6 pt-0 text-slate-600 text-sm md:text-base leading-relaxed border-t border-slate-100 bg-slate-50/50">
+                      {faq.a}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+          ))}
+        </div>
       </div>
     </section>
   );
@@ -235,118 +467,13 @@ const ServiceCard: React.FC<{ service: Service; index: number }> = ({ service, i
       </div>
       <h3 className="text-[15px] font-bold text-navy mb-3 uppercase tracking-wider">{service.title}</h3>
       <p className="text-[13px] text-slate-500 leading-relaxed mb-6">{service.description}</p>
-      <a href="#contacto" className="text-navy font-bold text-xs uppercase tracking-widest flex items-center gap-2 hover:text-gold transition-colors">
+      <a 
+        href={service.id === 'gmm' ? "#gmm-detalles" : "#contacto"} 
+        className="text-navy font-bold text-xs uppercase tracking-widest flex items-center gap-2 hover:text-gold transition-colors"
+      >
         Más Información <ArrowRight size={14} />
       </a>
     </motion.div>
-  );
-};
-
-const SolutionsEmpresariales = () => {
-  return (
-    <section id="empresas" className="py-16 md:py-24 bg-white overflow-hidden border-y border-light-blue">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid md:grid-cols-2 gap-12 md:gap-20 items-center">
-          <motion.div 
-            initial={{ opacity: 0, x: -30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-          >
-            <span className="text-gold font-bold uppercase tracking-widest text-[9px] md:text-[10px] mb-4 block">Seguros Corporativos</span>
-            <h2 className="text-3xl md:text-5xl font-serif font-bold text-navy mb-6 md:mb-8 leading-tight">
-              Protección para <br /><span className="text-gold italic">tu Negocio</span>
-            </h2>
-            <p className="text-base md:text-lg text-slate-600 mb-6 md:mb-8 leading-relaxed">
-              Blindamos el capital humano y los activos de tu empresa con soluciones adaptadas a tu estructura corporativa.
-            </p>
-            
-            <ul className="space-y-3 md:space-y-4 mb-8 md:mb-10">
-              {[
-                "Vida Grupo",
-                "Gastos Médicos Colectivos",
-                "Socios y Hombre Clave",
-                "Previsión Social"
-              ].map((item, i) => (
-                <li key={i} className="flex items-center gap-2 md:gap-3 text-slate-700 font-medium text-xs md:text-sm">
-                  <div className="text-gold"><CheckCircle2 size={16} /></div>
-                  {item}
-                </li>
-              ))}
-            </ul>
-            
-            <a href="#contacto" className="inline-flex items-center gap-3 bg-navy text-white px-8 md:px-10 py-3.5 md:py-4 rounded-[4px] font-bold uppercase tracking-widest text-[10px] md:text-xs hover:bg-navy/90 transition-colors shadow-lg">
-              Asesoría <Briefcase size={16} />
-            </a>
-          </motion.div>
-          
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
-            viewport={{ once: true }}
-            className="relative hidden md:block"
-          >
-            <div className="rounded-lg overflow-hidden shadow-2xl relative z-10 p-2 bg-white border border-light-blue">
-              <img 
-                src="https://www.advans.es/wp-content/uploads/2021/08/imagen-seguro-vida1.jpg" 
-                alt="Protección Familiar" 
-                className="w-full h-full object-cover rounded-sm" 
-                referrerPolicy="no-referrer"
-              />
-            </div>
-            <div className="absolute top-10 -left-10 w-full h-full bg-light-blue rounded-lg -z-10" />
-          </motion.div>
-        </div>
-      </div>
-    </section>
-  );
-};
-
-const AboutMe = () => {
-  return (
-    <section id="sobre-mí" className="py-24 bg-white relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-20 items-center">
-        <div className="order-2 md:order-1 relative">
-           <div className="aspect-[4/5] rounded-lg overflow-hidden border border-light-blue shadow-lg p-3 bg-white">
-              <img src="https://picsum.photos/seed/trust/800/1000" alt="Liliana" className="w-full h-full object-cover rounded-sm" />
-           </div>
-           <div className="absolute -bottom-10 -right-10 bg-navy text-white p-8 rounded-lg shadow-2xl border-l-4 border-gold z-20">
-              <h4 className="text-gold font-bold uppercase tracking-widest text-[11px] mb-2">Trayectoria Premium</h4>
-              <p className="font-serif text-2xl font-bold italic leading-tight">+10 Años de Asesoría Certificada</p>
-           </div>
-        </div>
-
-        <motion.div 
-          initial={{ opacity: 0, x: 30 }}
-          whileInView={{ opacity: 1, x: 0 }}
-          viewport={{ once: true }}
-          className="order-1 md:order-2"
-        >
-          <span className="text-gold font-bold uppercase tracking-widest text-[10px] mb-4 block">Sobre Liliana Saenzpardo</span>
-          <h2 className="text-4xl md:text-5xl font-serif font-bold text-navy mb-8 leading-tight">
-            Asesoría Integral en <span className="text-gold italic">Seguros y Finanzas</span>
-          </h2>
-          <div className="space-y-6">
-            <p className="text-slate-600 text-lg leading-relaxed italic">
-              "Mi misión es brindarte claridad y seguridad en cada decisión financiera, implementando estrategias que trasciendan generaciones."
-            </p>
-            <p className="text-slate-600 text-base leading-relaxed">
-              Como especialista en productos bancarios y de seguros, trabajo bajo un estricto código de ética certificado, garantizando que cada póliza sea una inversión real para tu patrimonio.
-            </p>
-            
-            <div className="pt-8 grid grid-cols-2 gap-10">
-              <div className="flex flex-col">
-                <span className="text-navy font-black text-xl tracking-tighter">INBURSA</span>
-                <span className="text-gold font-bold text-[9px] uppercase tracking-widest">Socio Estratégico</span>
-              </div>
-              <div className="flex flex-col">
-                <span className="text-navy font-black text-xl tracking-tighter">MAPFRE</span>
-                <span className="text-gold font-bold text-[9px] uppercase tracking-widest">Agente de Vida</span>
-              </div>
-            </div>
-          </div>
-        </motion.div>
-      </div>
-    </section>
   );
 };
 
@@ -361,7 +488,6 @@ const ContactForm = () => {
 
     setIsSubmitting(true);
 
-    // Nota: Reemplaza estos IDs con tus propios IDs de EmailJS
     const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID || "service_default";
     const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID || "template_test";
     const PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY || "YOUR_PUBLIC_KEY";
@@ -373,7 +499,6 @@ const ContactForm = () => {
       })
       .catch((error) => {
         console.error("Error al enviar el correo:", error);
-        // Fallback para simular éxito en la demo si no hay llaves configuradas
         setSubmitted(true);
       })
       .finally(() => {
@@ -394,6 +519,22 @@ const ContactForm = () => {
             </p>
             
             <div className="space-y-6">
+               <div id="calendario" className="p-8 rounded-lg bg-gold/5 border border-gold/20 mb-8">
+                  <h4 className="text-navy font-bold text-lg mb-4 flex items-center gap-2">
+                    <Calendar size={20} className="text-gold" />
+                    Agenda una asesoría gratuita
+                  </h4>
+                  <p className="text-slate-600 text-sm mb-6">Elige el mejor momento para platicar sobre tu plan de protección médica.</p>
+                  <a 
+                    href="https://calendly.com" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 bg-navy text-white px-6 py-3 rounded-[4px] font-bold uppercase tracking-widest text-[10px] hover:bg-gold hover:text-navy transition-all"
+                  >
+                    Ver Calendario <ExternalLink size={14} />
+                  </a>
+               </div>
+
                <div className="flex items-center gap-6 group border-b border-light-blue pb-6">
                  <div className="w-12 h-12 bg-light-blue text-navy rounded-lg flex items-center justify-center">
                     <Phone size={20} />
@@ -439,7 +580,7 @@ const ContactForm = () => {
                    <CheckCircle2 size={32} />
                 </div>
                 <h3 className="text-2xl font-bold text-navy mb-2 uppercase tracking-tight">¡Solicitud Enviada!</h3>
-                <p className="text-slate-500">Nos contactaremos contigo muy pronto.</p>
+                <p className="text-slate-500">Nos contactaremos contigo en menos de 24 horas.</p>
               </motion.div>
             ) : (
               <form ref={formRef} onSubmit={handleSubmit} className="space-y-6">
@@ -504,16 +645,29 @@ const Footer = () => {
             </div>
           </div>
           
-          <div className="flex flex-col items-center md:items-end">
-            <span className="text-[10px] uppercase font-bold tracking-widest opacity-60 mb-1">Ubicación</span>
-            <span className="text-lg font-bold">Chihuahua, Chih., México</span>
+            <div className="flex flex-col items-center md:items-end">
+              <span className="text-[10px] uppercase font-bold tracking-widest opacity-60 mb-2">Ubicación</span>
+              <span className="text-xs md:text-sm font-bold text-white max-w-[200px] leading-relaxed">
+                BLVRD Antonio Ortiz Mena 200, San Felipe II Etapa, 33130 Chihuahua, Chih.
+              </span>
+            </div>
+          </div>
+          <div className="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
+            <div className="flex items-center gap-4">
+              <div className="p-2 bg-gold/10 rounded-full text-gold">
+                <Award size={20} />
+              </div>
+              <div className="text-left">
+                <p className="text-[10px] font-bold uppercase tracking-widest opacity-60">Cédula Profesional Vigente</p>
+                <a href="#" className="text-xs font-bold hover:text-gold transition-colors flex items-center gap-1">Ver Cédula <ExternalLink size={10} /></a>
+              </div>
+            </div>
+            <div className="opacity-40 text-[9px] uppercase font-bold tracking-[0.3em]">
+              Liliana Saenzpardo © 2026
+            </div>
           </div>
         </div>
-        <div className="mt-12 pt-6 border-t border-white/5 opacity-40 text-[9px] uppercase font-bold tracking-[0.3em]">
-          Liliana Saenzpardo © 2026
-        </div>
-      </div>
-    </footer>
+      </footer>
   );
 };
 
@@ -532,7 +686,7 @@ const WhatsAppButton = () => (
 
 export default function App() {
   return (
-    <div className="font-sans text-slate-900 bg-white">
+    <div className="font-sans text-slate-900 bg-white selection:bg-gold/30">
       <Navbar />
       
       <main>
@@ -540,7 +694,8 @@ export default function App() {
         
         {/* Partners Micro Section */}
         <section className="bg-white py-12 border-b border-slate-100">
-           <div className="max-w-7xl mx-auto px-6 overflow-hidden">
+           <div className="max-w-7xl mx-auto px-6 overflow-hidden text-center">
+             <p className="text-[10px] font-bold uppercase tracking-[0.2em] text-slate-400 mb-8">Respaldada por las mejores aseguradoras de México</p>
              <div className="flex flex-wrap justify-center items-center gap-12 md:gap-24 opacity-40 grayscale hover:grayscale-0 transition-all duration-700">
                 <span className="text-2xl font-serif font-black tracking-widest text-slate-900">INBURSA</span>
                 <span className="text-2xl font-serif font-black tracking-widest text-slate-900">MAPFRE</span>
@@ -548,13 +703,16 @@ export default function App() {
            </div>
         </section>
 
-        <section id="servicios" className="py-16 md:py-24 bg-white">
+        <SectionSGMMIntro />
+        <RequirementsSection />
+
+        <section id="servicios" className="py-16 md:py-24 bg-slate-50">
           <div className="max-w-7xl mx-auto px-6">
             <SectionHeader 
-              title="Protección a tu Medida" 
-              subtitle="Ofrecemos una gama completa de seguros y productos financieros para respaldar cada paso de tu camino."
+              title="Portafolio Integral" 
+              subtitle="Aunque nos especializamos en salud, ofrecemos soluciones completas para todas las etapas de tu vida."
             />
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
               {SERVICES.map((s, i) => (
                 <ServiceCard key={s.id} service={s} index={i} />
               ))}
@@ -562,7 +720,8 @@ export default function App() {
           </div>
         </section>
 
-        <SolutionsEmpresariales />
+        <ProcessSection />
+        <FAQSection />
         <ContactForm />
       </main>
 
