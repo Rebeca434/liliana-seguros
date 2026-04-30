@@ -29,12 +29,6 @@ interface Service {
 
 const SERVICES: Service[] = [
   {
-    id: "gmm",
-    title: "Gastos Médicos Mayores",
-    description: "La cobertura más robusta para proteger tu salud y patrimonio ante lo inesperado.",
-    icon: HeartPulse,
-  },
-  {
     id: "vida",
     title: "Seguro de Vida",
     description: "Asegura el bienestar de los tuyos con planes de vida diseñados a tu medida.",
@@ -45,6 +39,24 @@ const SERVICES: Service[] = [
     title: "Ahorro para el Retiro",
     description: "Construye hoy la libertad financiera que deseas para tu futuro.",
     icon: Sunrise,
+  },
+  {
+    id: "educativo",
+    title: "Plan Educativo",
+    description: "Garantiza la educación superior de tus hijos con previsión hoy.",
+    icon: GraduationCap,
+  },
+  {
+    id: "financieros",
+    title: "Productos Financieros",
+    description: "Soluciones de inversión y ahorro para hacer crecer tu capital.",
+    icon: Landmark,
+  },
+  {
+    id: "bancarios",
+    title: "Productos Bancarios",
+    description: "Servicios financieros integrales respaldados por instituciones líderes.",
+    icon: Building2,
   },
   {
     id: "empresas",
@@ -160,10 +172,6 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="inline-flex items-center gap-2 bg-gold/10 text-gold px-4 py-2 rounded-full mb-6 border border-gold/20">
-            <ShieldPlus size={16} />
-            <span className="text-[10px] font-bold uppercase tracking-widest">Especialista en Protección Médica</span>
-          </div>
           <h1 className="text-4xl sm:text-5xl lg:text-7xl font-serif text-navy leading-[1.1] mb-6 md:mb-8 font-bold">
             Tu tranquilidad,<br />
             <span className="text-gold italic">nuestra prioridad</span> médica.
@@ -712,7 +720,7 @@ export default function App() {
               title="Portafolio Integral" 
               subtitle="Aunque nos especializamos en salud, ofrecemos soluciones completas para todas las etapas de tu vida."
             />
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {SERVICES.map((s, i) => (
                 <ServiceCard key={s.id} service={s} index={i} />
               ))}
