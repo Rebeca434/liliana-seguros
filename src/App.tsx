@@ -92,7 +92,7 @@ const Navbar = () => {
           />
           <div className="flex flex-col">
             <span className={`font-serif text-xl md:text-lg font-bold tracking-tight leading-none ${isScrolled ? "text-navy" : "text-white"}`}>
-              Liliana Sáenz Pardo Perales
+              Liliana Saenz Pardo Perales
             </span>
             <span className={`text-[9px] font-bold tracking-[0.15em] mt-1 ${isScrolled ? "text-gold" : "text-gold"}`}>
               ASESORÍA FINANCIERA INTEGRAL
