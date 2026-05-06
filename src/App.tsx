@@ -383,7 +383,7 @@ const ProcessSection = () => {
       {/* Fondo con imagen de familia */}
       <div className="absolute inset-0">
         <img
-          src="https://images.unsplash.com/photo-1609220136736-443140cfeaa8?w=1600&auto=format&fit=crop&q=80"
+          src="https://images.pexels.com/photos/1128318/pexels-photo-1128318.jpeg?auto=compress&w=1600"
           alt="Familia protegida"
           className="w-full h-full object-cover"
         />
@@ -570,12 +570,7 @@ const ServiceCard: React.FC<{ service: Service; index: number }> = ({ service, i
       </div>
       <h3 className="text-[15px] font-bold text-navy mb-3 uppercase tracking-wider">{service.title}</h3>
       <p className="text-[13px] text-slate-500 leading-relaxed mb-6">{service.description}</p>
-      <a
-        href={service.id === 'gmm' ? "#gmm-detalles" : "#contacto"}
-        className="text-navy font-bold text-xs uppercase tracking-widest flex items-center gap-2 hover:text-gold transition-colors"
-      >
-        Más Información <ArrowRight size={14} />
-      </a>
+
     </motion.div>
   );
 };
