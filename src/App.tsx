@@ -194,7 +194,7 @@ const Hero = () => {
         >
           <div className="relative group overflow-hidden rounded-2xl">
             <img
-              src="https://i.imgur.com/VDtjQCR.png"
+              src="https://i.imgur.com/uvwiRE0.jpeg"
               alt="Liliana Saenzpardo"
               className="w-full h-auto object-cover relative z-10 transition-transform duration-700 group-hover:scale-105"
               referrerPolicy="no-referrer"
