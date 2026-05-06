@@ -201,7 +201,7 @@ const Hero = () => {
             />
             {/* Professional Floating Badge */}
             <div className="absolute bottom-6 left-6 right-6 bg-white/90 backdrop-blur-md p-6 rounded-xl shadow-2xl z-20 border-l-[6px] border-gold transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-              <p className="text-navy font-black text-lg uppercase tracking-tight">Liliana Sáenz Pardo Perales</p>
+              <p className="text-navy font-black text-lg uppercase tracking-tight">Liliana Saenz Pardo Perales</p>
               <div className="flex items-center gap-2 mt-1">
                 <Award size={14} className="text-gold" />
                 <p className="text-gold font-bold text-[10px] uppercase tracking-[0.2em]">Cédula Profesional Vigente</p>
@@ -758,7 +758,7 @@ const Footer = () => {
             </div>
           </div>
           <div className="opacity-40 text-[9px] uppercase font-bold tracking-[0.3em]">
-            Liliana Sáenz Pardo Perales © 2026
+            Liliana Saenz Pardo Perales © 2026
           </div>
         </div>
       </div>
