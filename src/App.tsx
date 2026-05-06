@@ -534,9 +534,6 @@ const DeductibilidadSection = () => (
               <p className="text-white font-bold">Tu CFDI (factura electrónica) que emite la aseguradora por el pago de tus primas.</p>
             </div>
           </div>
-          <a href="#contacto" className="mt-8 inline-flex items-center gap-2 bg-gold text-navy px-8 py-3 rounded-[4px] font-bold uppercase tracking-widest text-xs hover:bg-white transition-all">
-            Quiero saber más <ArrowRight size={14} />
-          </a>
         </div>
       </div>
     </div>
