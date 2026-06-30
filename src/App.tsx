@@ -255,7 +255,7 @@ const SectionSGMMIntro = () => {
         <div className="bg-white rounded-2xl shadow-xl overflow-hidden border border-slate-200 grid md:grid-cols-2">
           <div className="relative h-64 md:h-auto overflow-hidden">
             <img
-              src="https://www.advans.es/wp-content/uploads/2021/08/imagen-seguro-vida1.jpg"
+              src="https://betterfly.com/wp-content/uploads/2025/01/Articulo-Betterfly-Seguro-Gastos-mayores-1400x933.jpg?auto=compress&cs=tinysrgb&w=1200"
               alt="Seguro de Gastos Médicos Mayores"
               className="w-full h-full object-cover"
               referrerPolicy="no-referrer"
