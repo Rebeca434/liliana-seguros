@@ -621,7 +621,7 @@ const ContactForm = () => {
                 </h4>
                 <p className="text-slate-600 text-sm mb-6">Elige el mejor momento para platicar sobre tu plan de protección médica.</p>
                 <a
-                  href="https://calendly.com"
+                  href="https://calendly.com/lilianas-smnyl/30min"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="inline-flex items-center gap-2 bg-navy text-white px-6 py-3 rounded-[4px] font-bold uppercase tracking-widest text-[10px] hover:bg-gold hover:text-navy transition-all"
