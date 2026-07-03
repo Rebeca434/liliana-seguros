@@ -788,9 +788,26 @@ export default function App() {
         <Hero />
 
         {/* Partners Micro Section */}
-        <section className="bg-white py-12 border-b border-slate-100">
-          <div className="max-w-7xl mx-auto px-6 overflow-hidden text-center">
-            <p className="text-sm md:text-base font-bold uppercase tracking-[0.2em] text-slate-500">Trabajamos con las mejores compañías.</p>
+        <section className="bg-white py-10 border-b border-slate-100">
+          <div className="max-w-4xl mx-auto px-6 text-center">
+
+            <div className="flex items-center justify-center gap-2 mb-5">
+  <           ShieldCheck size={18} className="text-gold" />
+                <span className="text-sm font-medium text-slate-600">
+                  Agente autorizado de Inbursa
+                </span>
+            </div>
+
+            <p className="text-slate-500 mb-8">
+              Protegemos a nuestros clientes con el respaldo de una de las aseguradoras
+              más importantes de México.
+            </p>
+
+            <img
+              src="https://i.imgur.com/4jdEzP2.png"
+              alt="Inbursa"
+              className="h-20 mx-auto object-contain opacity-80 hover:opacity-100 transition"
+            />
           </div>
         </section>
 
